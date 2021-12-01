@@ -10,4 +10,10 @@ public class InputUtils {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
+
+    public static String getStringValue(String description) {
+        System.out.println(description);
+        Scanner scanner = new Scanner(System.in);
+        return scanner.next();
+    }
 }

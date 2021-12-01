@@ -14,15 +14,19 @@ public class RacingManager {
     private final List<ResultInfo> resultInfos;
 
     public RacingManager(RacingInfo racingInfo) {
-        this.cars = IntStream.range(0, racingInfo.getCarCount())
-                .boxed()
-                .map(i -> new Car())
+        this.cars = racingInfo.getCarList()
+                .stream()
+                .map(Car::new)
                 .collect(Collectors.toList());
         this.lapCount = racingInfo.getLapCount();
         this.resultInfos = IntStream.range(0, this.lapCount)
                 .boxed()
                 .map(i -> new ResultInfo())
                 .collect(Collectors.toList());
+    }
+
+    public List<String> getCars() {
+        return this.getCars();
     }
 
     public List<ResultInfo> getResultInfos() {
@@ -36,6 +40,6 @@ public class RacingManager {
     }
 
     protected void moveCars(int lapIndex) {
-        cars.forEach(car -> this.resultInfos.get(lapIndex).addResult(car.move(RandomUtils.getNextInt())));
+        cars.forEach(car -> this.resultInfos.get(lapIndex).addResult(car.getName(), car.move(RandomUtils.getNextInt())));
     }
 }

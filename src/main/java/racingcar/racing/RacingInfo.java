@@ -1,19 +1,21 @@
 package racingcar.racing;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class RacingInfo {
-    private final int carCount;
     private final int lapCount;
+    private final List<String> carList;
 
-    public RacingInfo(int carCount, int lapCount) {
-        this.carCount = carCount;
+    public RacingInfo(String carList, int lapCount) {
+        this.carList = Arrays.stream(carList.split(",")).collect(Collectors.toList());
         this.lapCount = lapCount;
-    }
-
-    public int getCarCount() {
-        return this.carCount;
     }
 
     public int getLapCount() {
         return this.lapCount;
     }
+
+    public List<String> getCarList() { return this.carList; }
 }

@@ -12,7 +12,7 @@ class CarTest {
     @ParameterizedTest
     @ValueSource(ints = {1,2,3})
     void hold(int input) {
-        Car car = new Car();
+        Car car = new Car("test" + input);
         int prevPosition = car.getPosition();
 
         car.move(input);
@@ -23,7 +23,7 @@ class CarTest {
     @ParameterizedTest
     @ValueSource(ints = {4,5,6,7,8,9,10})
     void move(int input) {
-        Car car = new Car();
+        Car car = new Car("test" + input);
         int prevPosition = car.getPosition();
 
         car.move(input);

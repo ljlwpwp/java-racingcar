@@ -13,7 +13,7 @@ public class ResultViewManager {
     public void drawingCars() {
         System.out.println("실행 결과");
         racingManager.getResultInfos().forEach(resultInfo -> {
-            resultInfo.getResults().forEach(result -> System.out.println(OutputUtils.convertLiteral(result)));
+            resultInfo.getResults().forEach(result -> System.out.println(result.getName() + " : " + OutputUtils.convertLiteral(result.getPosition())));
             System.out.println();
         });
     }

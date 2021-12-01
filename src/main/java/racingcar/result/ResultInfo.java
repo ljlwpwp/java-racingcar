@@ -1,20 +1,22 @@
 package racingcar.result;
 
+import racingcar.car.Car;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ResultInfo {
-    private List<Integer> results;
+    private final List<Car> results;
 
     public ResultInfo() {
         this.results = new ArrayList<>();
     }
 
-    public void addResult(int carPosition) {
-        this.results.add(carPosition);
+    public void addResult(String name, int carPosition) {
+        this.results.add(new Car(name, carPosition));
     }
 
-    public List<Integer> getResults() {
+    public List<Car> getResults() {
         return this.results;
     }
 }
